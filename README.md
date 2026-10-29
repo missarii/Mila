@@ -2,6 +2,8 @@
 
 > **Mila** is an active UI/UX intelligence system and MCP server for autonomous AI coding agents (Claude Code, Cursor, Windsurf, Antigravity, v0). Inspired by HorizonX's agent-first paradigm, Mila teaches AI coding tools how to build beautiful, production-ready interfaces with mathematical precision and zero "AI slop".
 
+📚 **[Read the Complete Project Integration & UI/UX Guide](./INTEGRATION_GUIDE.md)** — Step-by-step instructions on connecting Mila to any repo, importing components, and prompting agents.
+
 ---
 
 ## 🌟 The 4 Pillars of Mila
