@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    {
+      "id": "typography",
+      "title": "Typography & Font Hierarchy",
+      "summary": "Rules for font scales, line heights, tracking, and contrast.",
+      "rules": [
+        {
+          "id": "tighten-display-headings",
+          "severity": "must",
+          "rule": "Headings sized text-4xl or larger must include tracking-tight or tracking-tighter.",
+          "tailwind": "tracking-tight"
+        },
+        {
+          "id": "max-line-length",
+          "severity": "must",
+          "rule": "Constrain body text paragraphs to max-w-xl or max-w-2xl for optimal reading length (60-75 chars).",
+          "tailwind": "max-w-2xl"
+        },
+        {
+          "id": "accessible-body-contrast",
+          "severity": "must",
+          "rule": "Secondary text on dark surfaces must not go darker than text-neutral-400 to maintain WCAG AA readability.",
+          "tailwind": "text-neutral-400"
+        }
+      ]
+    },
+    {
+      "id": "colors",
+      "title": "Color Systems & Surfaces",
+      "summary": "60-30-10 palette balance and avoiding AI gradient slop.",
+      "rules": [
+        {
+          "id": "no-cliche-ai-gradients",
+          "severity": "avoid",
+          "rule": "Avoid generic purple-to-pink gradient buttons. Use clean neutral surfaces with subtle lighting borders or single-color accent highlights."
+        },
+        {
+          "id": "subtle-borders-over-shadows",
+          "severity": "recommended",
+          "rule": "In dark mode, prioritize thin borders (border border-neutral-800) over heavy blurred shadows."
+        }
+      ]
+    },
+    {
+      "id": "layout",
+      "title": "Layout, Spacing & Bento Grids",
+      "summary": "Consistent 8-point spatial rhythm, responsive containers, and asymmetrical bento cards.",
+      "rules": [
+        {
+          "id": "mobile-first-grids",
+          "severity": "must",
+          "rule": "Multi-column grids must start with grid-cols-1 on mobile and use responsive prefixes (md:grid-cols-2, lg:grid-cols-3)."
+        },
+        {
+          "id": "container-max-width",
+          "severity": "must",
+          "rule": "Always wrap landing and dashboard content within mx-auto max-w-7xl px-4 sm:px-6 lg:px-8."
+        },
+        {
+          "id": "no-magic-pixel-widths",
+          "severity": "must",
+          "rule": "Do not hardcode arbitrary pixel dimensions like w-[487px]. Use fractional widths, responsive scale or w-full max-w-md."
+        }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "title": "Accessibility & Interaction Polish",
+      "summary": "Focus rings, aria labels, and interactive transitions.",
+      "rules": [
+        {
+          "id": "focus-visible-rings",
+          "severity": "must",
+          "rule": "All interactive buttons and links must specify focus-visible:ring-2 focus-visible:outline-none."
+        },
+        {
+          "id": "micro-interaction-feedback",
+          "severity": "recommended",
+          "rule": "Interactive cards and clickable elements must include hover transition and active:scale-[0.99] feedback."
+        }
+      ]
+    }
+  ]
+}

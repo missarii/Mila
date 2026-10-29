@@ -1,0 +1,20 @@
+{
+  "name": "@mila/mcp-server",
+  "version": "0.1.0",
+  "description": "Mila MCP Server for AI Coding Agents",
+  "main": "src/index.ts",
+  "bin": {
+    "mila-mcp": "./bin/mila-mcp.js"
+  },
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@mila/registry": "workspace:*",
+    "@mila/rules": "workspace:*",
+    "@mila/review": "workspace:*",
+    "zod": "^4.6.7"
+  }
+}

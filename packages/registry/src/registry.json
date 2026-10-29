@@ -1,0 +1,105 @@
+{
+  "name": "mila-registry",
+  "version": "1.0.0",
+  "components": [
+    {
+      "name": "spotlight-card",
+      "title": "Spotlight Card",
+      "category": "card",
+      "description": "Cursor-tracking radial spotlight border glow effect for dark-mode cards.",
+      "tags": ["card", "interactive", "spotlight", "hover", "glow"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "SpotlightCard.tsx",
+          "path": "components/SpotlightCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "before-after-slider",
+      "title": "Before-After Image Comparison Slider",
+      "category": "interactive",
+      "description": "Smooth drag and touch responsive before/after image comparison slider with pill tags.",
+      "tags": ["slider", "interactive", "comparison", "image", "vibe-coding"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "BeforeAfterSlider.tsx",
+          "path": "components/BeforeAfterSlider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "title": "Asymmetrical Modern Bento Grid",
+      "category": "bento",
+      "description": "High-craft 3-column bento showcase with simulated agent terminal and live metrics.",
+      "tags": ["bento", "grid", "showcase", "terminal", "metrics"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "BentoGrid.tsx",
+          "path": "components/BentoGrid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-geometric",
+      "title": "Geometric Wireframe Hero Section",
+      "category": "hero",
+      "description": "Futuristic landing page hero with ambient blurred gradient, status badge, and dual CTA.",
+      "tags": ["hero", "landing", "gradient", "cta", "badge"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "HeroGeometric.tsx",
+          "path": "components/HeroGeometric.tsx"
+        }
+      ]
+    },
+    {
+      "name": "floating-navbar",
+      "title": "Pill Floating Navbar",
+      "category": "nav",
+      "description": "Dynamic scroll-aware floating pill navbar with backdrop blur and responsive mobile drawer.",
+      "tags": ["nav", "header", "floating", "responsive", "blur"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "FloatingNavbar.tsx",
+          "path": "components/FloatingNavbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-matrix",
+      "title": "High-Conversion Pricing Matrix",
+      "category": "pricing",
+      "description": "3-tier pricing matrix with monthly/annual toggle switch and popular plan spotlight.",
+      "tags": ["pricing", "toggle", "matrix", "cards", "conversion"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "PricingMatrix.tsx",
+          "path": "components/PricingMatrix.tsx"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    {
+      "name": "modern-saas-landing",
+      "title": "Modern AI SaaS Landing Page",
+      "description": "Complete conversion-oriented SaaS landing page composing FloatingNavbar, HeroGeometric, BentoGrid, and PricingMatrix.",
+      "componentsUsed": ["floating-navbar", "hero-geometric", "bento-grid", "pricing-matrix"],
+      "entry": "templates/ModernSaaSPage.tsx"
+    }
+  ]
+}

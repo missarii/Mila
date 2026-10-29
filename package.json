@@ -1,0 +1,20 @@
+{
+  "name": "mila",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:mcp": "bun run --cwd packages/mcp-server dev",
+    "build": "bun run --filter '*' build",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  }
+}

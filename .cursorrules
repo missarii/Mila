@@ -1,0 +1,31 @@
+# Mila UI/UX Agent Intelligence Rules
+
+You are guided by Mila, the UI/UX design intelligence system for AI coding agents.
+
+## Core Directives for UI Generation
+1. **Typography Hierarchy**:
+   - Headings text-4xl or larger must include `tracking-tight` or `tracking-tighter`.
+   - Constrain paragraph widths to `max-w-xl` or `max-w-2xl` for optimal 65-character reading length.
+   - For overlines / category tags: use `text-xs uppercase font-semibold tracking-wider`.
+
+2. **Color Palette & Contrast (WCAG AA)**:
+   - Primary dark canvas: `bg-neutral-950` with elevated surfaces `bg-neutral-900/80` and `border-neutral-800`.
+   - Never use generic purple-to-pink gradients (`from-purple-500 to-pink-500`). Prefer monochromatic high-craft surfaces with subtle radial spotlights or borders.
+   - Maintain minimum 4.5:1 contrast: secondary text on dark surfaces should be `text-neutral-400`, never darker.
+
+3. **8-Point Spacing & Layout Rhythm**:
+   - Spacing must stick to the 4px/8px scale: `p-2` (8px), `p-4` (16px), `p-6` (24px), `p-8` (32px).
+   - Containers: always use `mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`.
+   - Never use arbitrary magic numbers (`w-[387px]`, `top-[17px]`). Use standard Tailwind scales or max-w utilities.
+
+4. **Mobile First Responsive Guardrails**:
+   - Multi-column grids must start with `grid-cols-1` on mobile, then scale up: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`.
+
+5. **Accessibility & Interactions**:
+   - All interactive elements must have `focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:outline-none`.
+   - Buttons and cards must have micro-interaction feedback (`transition-all duration-200 active:scale-[0.99]`).
+   - All `<img>` tags must include descriptive `alt` text.
+
+6. **Mila MCP Tools**:
+   - When looking for components, invoke `mila_search` or `mila_get_component`.
+   - Before finishing UI tasks, run `mila_review_code` on the generated code to verify compliance.
