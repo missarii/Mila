@@ -1,6 +1,6 @@
 {
   "name": "mila-registry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "components": [
     {
       "name": "spotlight-card",
@@ -29,6 +29,36 @@
         {
           "name": "BeforeAfterSlider.tsx",
           "path": "components/BeforeAfterSlider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tilt-3d-card",
+      "title": "3D Perspective Tilt Card with Dynamic Glare",
+      "category": "3d-motion",
+      "description": "Physics-driven 3D mouse parallax card with concentric depth layers (translateZ) and dynamic lighting reflection.",
+      "tags": ["3d", "motion", "card", "tilt", "parallax", "glare", "perspective"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "Tilt3DCard.tsx",
+          "path": "components/Tilt3DCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "particle-wave-3d",
+      "title": "Interactive 3D Wave Particle Canvas",
+      "category": "3d-motion",
+      "description": "60fps canvas-rendered 3D wireframe particle landscape with mathematical perspective projection and cursor camera orbit.",
+      "tags": ["3d", "motion", "canvas", "particles", "wave", "shader", "webgl", "background"],
+      "dependencies": ["react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "ParticleWave3D.tsx",
+          "path": "components/ParticleWave3D.tsx"
         }
       ]
     },

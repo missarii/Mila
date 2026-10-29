@@ -13,6 +13,35 @@ export interface ReviewResult {
   issues: ReviewIssue[];
   summary: string;
   formattedReport: string;
+  autoFixedCode?: string;
+}
+
+export function autoFixCode(code: string): string {
+  let fixed = code;
+
+  // 1. Fix arbitrary pixel magic numbers (e.g., w-[347px] -> w-full max-w-sm)
+  fixed = fixed.replace(/w-\[\d+px\]/g, "w-full max-w-sm");
+  fixed = fixed.replace(/h-\[\d+px\]/g, "h-auto min-h-48");
+
+  // 2. Fix generic AI gradient slop
+  fixed = fixed.replace(/bg-gradient-to-r\s+from-purple-[456]00\s+to-pink-[456]00/gi, "bg-neutral-900 border border-neutral-800");
+
+  // 3. Fix rigid desktop grids -> mobile first
+  fixed = fixed.replace(/\bgrid-cols-([2-6])\b/g, (match, cols) => {
+    // If not already prefixed by md: or lg:
+    return `grid-cols-1 md:grid-cols-${cols}`;
+  });
+
+  // 4. Fix missing alt on <img>
+  fixed = fixed.replace(/<img\b(?![^>]*\balt=)([^>]*?)(\/?)>/gi, '<img$1 alt="Visual illustration"$2>');
+
+  // 5. Fix outline-none without focus ring
+  fixed = fixed.replace(/\boutline-none\b/g, "outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2");
+
+  // 6. Fix large headings missing tight tracking
+  fixed = fixed.replace(/\btext-([4-7]xl)\b(?![^"]*tracking-)/g, "text-$1 tracking-tight");
+
+  return fixed;
 }
 
 export function reviewCode(code: string): ReviewResult {
@@ -47,7 +76,7 @@ export function reviewCode(code: string): ReviewResult {
   }
 
   // 3. Check for Non-Mobile-First Grids
-  const rigidGridMatch = code.match(/grid-cols-[2-6]/g);
+  const rigidGridMatch = code.match(/(?<![a-z0-9]:)grid-cols-[2-6]/g);
   if (rigidGridMatch && !/grid-cols-1/g.test(code)) {
     issues.push({
       severity: "error",
@@ -114,6 +143,8 @@ export function reviewCode(code: string): ReviewResult {
   const score = Math.max(0, 100 - deductions);
   const passed = score >= 80;
 
+  const autoFixed = issues.length > 0 ? autoFixCode(code) : undefined;
+
   // Generate markdown report
   let report = `### Mila Review Score: ${score}/100 ${passed ? "✅ PASS" : "⚠️ NEEDS REVISION"}\n\n`;
   if (issues.length === 0) {
@@ -131,6 +162,10 @@ export function reviewCode(code: string): ReviewResult {
       report += `- **Observation**: ${issue.description}\n`;
       report += `- **Fix**: \`${issue.suggestion}\`\n\n`;
     }
+
+    if (autoFixed) {
+      report += `### 🛠️ Mila Auto-Corrected Version:\n\`\`\`tsx\n${autoFixed}\n\`\`\`\n`;
+    }
   }
 
   return {
@@ -139,5 +174,6 @@ export function reviewCode(code: string): ReviewResult {
     issues,
     summary: `${score}/100 (${issues.length} issues detected)`,
     formattedReport: report,
+    autoFixedCode: autoFixed,
   };
 }

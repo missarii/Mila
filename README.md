@@ -59,15 +59,17 @@ Configure Mila in your `~/.gemini/antigravity-cli/mcp.json`:
 
 ---
 
-## 🛠 Available MCP Tools
+## 🛠 Available MCP Tools (7 Advanced Agent Tools)
 
 | Tool | Description |
 | :--- | :--- |
-| `mila_search` | Search components and templates by keyword or category (`bento`, `hero`, `slider`, `pricing`). |
+| `mila_search` | Search components, 3D elements, and templates by keyword or category (`3d-motion`, `bento`, `hero`, `slider`, `pricing`). |
 | `mila_get_component` | Fetch complete, ready-to-paste TypeScript source code, styling, and required dependencies. |
-| `mila_get_rules` | Fetch design intelligence rules for typography, color balance, 8pt spacing, or anti-patterns. |
+| `mila_get_rules` | Fetch design intelligence rules for typography, 3D motion standards, 8pt spacing rhythm, or anti-patterns. |
+| `mila_generate_theme` | Generate accessible token palettes & Tailwind v4 `@theme` blocks (e.g. Electric Indigo, Cyber Emerald, Obsidian Mono, Warm Editorial). |
 | `mila_get_template` | Fetch full-page layout compositions (e.g., `modern-saas-landing`). |
 | `mila_review_code` | Audit a generated React/Tailwind component and receive an automated quality score and actionable fixes. |
+| `mila_auto_fix` | Automatically refactor and repair code by removing magic pixel numbers, fixing grids for mobile, adding focus rings, and cleaning AI gradient slop. |
 
 ---
 

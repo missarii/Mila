@@ -10,11 +10,13 @@ import { handleGetComponent } from "./tools/get.js";
 import { handleGetRules } from "./tools/rules.js";
 import { handleGetTemplate } from "./tools/templates.js";
 import { handleReviewCode } from "./tools/review.js";
+import { handleGenerateTheme } from "./tools/theme.js";
+import { handleAutoFix } from "./tools/autofix.js";
 
 const server = new Server(
   {
     name: "mila-mcp",
-    version: "0.1.0",
+    version: "0.2.0",
   },
   {
     capabilities: {
@@ -30,17 +32,17 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "mila_search",
         description:
-          "Search the Mila curated UI catalog for components, templates, and patterns by keyword or category.",
+          "Search the Mila curated UI catalog for components, 3D elements, templates, and patterns by keyword or category.",
         inputSchema: {
           type: "object",
           properties: {
             query: {
               type: "string",
-              description: "Search keyword, e.g., 'bento', 'slider', 'hero', 'card', 'pricing'",
+              description: "Search keyword, e.g., '3d', 'tilt', 'particles', 'bento', 'slider', 'hero', 'card', 'pricing'",
             },
             category: {
               type: "string",
-              description: "Optional category filter: hero, bento, card, nav, pricing, interactive, all",
+              description: "Optional category filter: 3d-motion, hero, bento, card, nav, pricing, interactive, all",
             },
           },
         },
@@ -54,7 +56,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           properties: {
             name: {
               type: "string",
-              description: "Component slug, e.g., 'spotlight-card', 'before-after-slider', 'bento-grid', 'hero-geometric', 'floating-navbar', 'pricing-matrix'",
+              description: "Component slug, e.g., 'tilt-3d-card', 'particle-wave-3d', 'spotlight-card', 'before-after-slider', 'bento-grid', 'hero-geometric', 'floating-navbar', 'pricing-matrix'",
             },
           },
           required: ["name"],
@@ -63,13 +65,27 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "mila_get_rules",
         description:
-          "Fetch Mila UI/UX intelligence rules, design tokens, typography scales, or anti-patterns for AI agents.",
+          "Fetch Mila UI/UX intelligence rules, 3D motion standards, design tokens, typography scales, or anti-patterns for AI agents.",
         inputSchema: {
           type: "object",
           properties: {
             topic: {
               type: "string",
-              description: "Rule topic: 'typography', 'colors', 'layout', 'spacing', 'anti-patterns', 'accessibility', or 'all'",
+              description: "Rule topic: 'typography', 'colors', 'layout', 'spacing', '3d-motion', 'anti-patterns', 'accessibility', or 'all'",
+            },
+          },
+        },
+      },
+      {
+        name: "mila_generate_theme",
+        description:
+          "Generate an accessible, production-ready design token system and Tailwind CSS v4 @theme block based on industry, mood, or brand preset.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            themeNameOrKeyword: {
+              type: "string",
+              description: "Theme preset or mood keyword, e.g., 'electric-indigo', 'cyber-emerald', 'obsidian-mono', 'warm-editorial', 'fintech', 'crypto', 'luxury'",
             },
           },
         },
@@ -104,6 +120,21 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           required: ["code"],
         },
       },
+      {
+        name: "mila_auto_fix",
+        description:
+          "Automatically refactor and repair React/Tailwind code by replacing arbitrary magic numbers, fixing non-mobile grids, adding accessible focus rings, and removing AI gradient slop.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            code: {
+              type: "string",
+              description: "React/Tailwind code snippet with anti-patterns to automatically repair",
+            },
+          },
+          required: ["code"],
+        },
+      },
     ],
   };
 });
@@ -123,11 +154,17 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case "mila_get_rules":
         return handleGetRules((args as { topic?: string }) || {});
 
+      case "mila_generate_theme":
+        return handleGenerateTheme((args as { themeNameOrKeyword?: string }) || {});
+
       case "mila_get_template":
         return handleGetTemplate((args as { templateName: string }) || { templateName: "" });
 
       case "mila_review_code":
         return handleReviewCode((args as { code: string }) || { code: "" });
+
+      case "mila_auto_fix":
+        return handleAutoFix((args as { code: string }) || { code: "" });
 
       default:
         throw new Error(`Unknown Mila tool: ${name}`);
@@ -150,7 +187,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("Mila MCP Server v0.1.0 started on stdio");
+  console.error("Mila MCP Server v0.2.0 started on stdio");
 }
 
 main().catch((err) => {

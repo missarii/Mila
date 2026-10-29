@@ -3,6 +3,8 @@ import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
+export { generateTheme, presetThemes, type MilaTheme } from "./theme-generator.js";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export interface MilaRule {
@@ -40,6 +42,9 @@ export function getFullMarkdownDoc(topic: string): string {
     spacing: "layout-spacing.md",
     "anti-patterns": "anti-patterns.md",
     accessibility: "anti-patterns.md",
+    "3d-motion": "3d-motion.md",
+    "3d": "3d-motion.md",
+    motion: "3d-motion.md",
   };
 
   const filename = fileMap[topic.toLowerCase()] || "anti-patterns.md";
