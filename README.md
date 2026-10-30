@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="Mila_Logo.png" alt="Mila Logo" width="200" />
+</div>
+
 # Mila — AI UI/UX Intelligence Toolkit 🚀
 
 > **Mila** is an active UI/UX intelligence system and MCP server for autonomous AI coding agents (Claude Code, Cursor, Windsurf, Antigravity, v0). Inspired by HorizonX's agent-first paradigm, Mila teaches AI coding tools how to build beautiful, production-ready interfaces with mathematical precision and zero "AI slop".
