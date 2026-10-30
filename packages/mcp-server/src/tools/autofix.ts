@@ -1,4 +1,4 @@
-import { autoFixCode, reviewCode } from "../../../review/src/index.js";
+import { autoFixCode, reviewCode } from "@mila/review";
 
 export function handleAutoFix(args: { code: string }) {
   if (!args.code || typeof args.code !== "string") {

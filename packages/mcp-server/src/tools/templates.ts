@@ -1,4 +1,4 @@
-import { getTemplateDetails, registry } from "../../../registry/src/index.js";
+import { getTemplateDetails, registry } from "@mila/registry";
 
 export function handleGetTemplate(args: { templateName: string }) {
   const result = getTemplateDetails(args.templateName);

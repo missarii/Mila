@@ -5,14 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "bunx --bun next telemetry disable 2>/dev/null || true"
   },
   "dependencies": {
     "@mila/registry": "workspace:*",
     "@mila/rules": "workspace:*",
     "@mila/review": "workspace:*",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.454.0",
+    "next": "15.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "postcss": "^8.4.49"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

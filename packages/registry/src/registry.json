@@ -121,6 +121,96 @@
           "path": "components/PricingMatrix.tsx"
         }
       ]
+    },
+    {
+      "name": "screen-card",
+      "title": "3D Tilt Design Screen Card",
+      "category": "card",
+      "description": "Mobbin-style design screen card with physics-driven 3D tilt, glare, and open-source image rendering.",
+      "tags": ["card", "3d", "motion", "tilt", "screen", "gallery"],
+      "dependencies": ["react", "next", "lucide-react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "ScreenCard.tsx",
+          "path": "components/ui/ScreenCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-from-url",
+      "title": "Open-Source Image Renderer with Fallback",
+      "category": "asset",
+      "description": "Renders images from open-source internet URLs (Lorem Picsum / Unsplash source) with a neutral SVG fallback placeholder.",
+      "tags": ["image", "asset", "url", "unsplash", "picsum", "fallback"],
+      "dependencies": ["next", "react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "ImageFromUrl.tsx",
+          "path": "components/ui/ImageFromUrl.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar",
+      "title": "Floating Navigation Bar",
+      "category": "nav",
+      "description": "Scroll-aware floating navigation with mobile drawer, category chips, and auth actions.",
+      "tags": ["nav", "header", "floating", "responsive", "mobile-drawer"],
+      "dependencies": ["react", "next", "lucide-react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "Navbar.tsx",
+          "path": "components/layout/Navbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-section",
+      "title": "3D Particle Hero Section",
+      "category": "hero",
+      "description": "Landing hero with canvas-rendered 3D particle background, ambient spotlights, and dual CTA.",
+      "tags": ["hero", "landing", "3d", "motion", "canvas", "cta"],
+      "dependencies": ["react", "next", "framer-motion", "lucide-react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "Hero.tsx",
+          "path": "components/sections/Hero.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-section",
+      "title": "3-Tier Pricing Section",
+      "category": "pricing",
+      "description": "Conversion-oriented pricing matrix with featured plan spotlight, feature checklist, and CTAs.",
+      "tags": ["pricing", "matrix", "cards", "toggle", "conversion"],
+      "dependencies": ["react", "lucide-react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "PricingSection.tsx",
+          "path": "components/sections/PricingSection.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-showcase",
+      "title": "Asymmetrical Bento Grid Showcase",
+      "category": "bento",
+      "description": "High-craft asymmetrical bento grid with Framer Motion reveal animations and agent-terminal tiles.",
+      "tags": ["bento", "grid", "showcase", "animation", "framer-motion"],
+      "dependencies": ["react", "framer-motion", "lucide-react"],
+      "devDependencies": ["@types/react"],
+      "files": [
+        {
+          "name": "BentoShowcase.tsx",
+          "path": "components/sections/BentoShowcase.tsx"
+        }
+      ]
     }
   ],
   "templates": [

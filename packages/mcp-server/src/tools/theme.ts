@@ -1,4 +1,4 @@
-import { generateTheme, presetThemes } from "../../../rules/src/index.js";
+import { generateTheme, presetThemes } from "@mila/rules";
 
 export function handleGenerateTheme(args: { themeNameOrKeyword?: string }) {
   const query = args.themeNameOrKeyword || "electric-indigo";

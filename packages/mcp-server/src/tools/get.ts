@@ -1,4 +1,4 @@
-import { getComponentDetails, listComponents } from "../../../registry/src/index.js";
+import { getComponentDetails, listComponents } from "@mila/registry";
 
 export function handleGetComponent(args: { name: string }) {
   const result = getComponentDetails(args.name);

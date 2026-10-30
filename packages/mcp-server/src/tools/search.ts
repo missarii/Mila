@@ -1,4 +1,4 @@
-import { searchComponents, listComponents } from "../../../registry/src/index.js";
+import { searchComponents, listComponents } from "@mila/registry";
 
 export function handleSearch(args: { query?: string; category?: string }) {
   const query = args.query || "";

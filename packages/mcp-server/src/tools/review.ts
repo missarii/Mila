@@ -1,4 +1,4 @@
-import { reviewCode } from "../../../review/src/index.js";
+import { reviewCode } from "@mila/review";
 
 export function handleReviewCode(args: { code: string }) {
   if (!args.code || typeof args.code !== "string") {

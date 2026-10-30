@@ -1,14 +1,31 @@
 {
   "name": "@mila/review",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Mila UI/UX Heuristic and Code Quality Auditor",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
-  "scripts": {
-    "build": "bun run build:types"
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "dependencies": {},
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun run build:bundle && bun run build:types",
+    "build:bundle": "bun build src/index.ts --outdir dist --target node --format esm --splitting",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist"
+  },
   "devDependencies": {
+    "@types/node": "^26.6.6",
     "typescript": "^5.7.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

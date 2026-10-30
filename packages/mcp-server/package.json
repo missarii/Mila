@@ -1,13 +1,21 @@
 {
-  "name": "@mila/mcp-server",
-  "version": "0.1.0",
-  "description": "Mila MCP Server for AI Coding Agents",
-  "main": "src/index.ts",
+  "name": "@mila/mcp",
+  "version": "0.2.0",
+  "description": "Mila MCP Server for AI Coding Agents — connect Mila to Cursor, Claude Code, Windsurf, Antigravity",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "bin": {
-    "mila-mcp": "./bin/mila-mcp.js"
+    "mila-mcp": "dist/bin/mila-mcp.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "bun run src/index.ts",
+    "build": "bun run build:bundle && bun run build:types",
+    "build:bundle": "bun build src/index.ts --outdir dist --target node --format esm --splitting --external @mila/registry --external @mila/rules --external @mila/review && mkdir -p dist/bin && printf '#!/usr/bin/env node\\nimport \"../index.js\";\\n' > dist/bin/mila-mcp.js && chmod +x dist/bin/mila-mcp.js",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "start": "bun run dist/index.js",
     "dev": "bun --watch src/index.ts"
   },
   "dependencies": {
@@ -16,5 +24,12 @@
     "@mila/rules": "workspace:*",
     "@mila/review": "workspace:*",
     "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^5.7.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

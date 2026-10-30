@@ -1,4 +1,4 @@
-import { getFullMarkdownDoc, rulesManifest } from "../../../rules/src/index.js";
+import { getFullMarkdownDoc, rulesManifest } from "@mila/rules";
 
 export function handleGetRules(args: { topic?: string }) {
   const topic = args.topic || "all";
