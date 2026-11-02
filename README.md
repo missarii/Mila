@@ -298,3 +298,5 @@ Standard AI coding tools generate code that works logically but fails aesthetica
 ---
 
 *Mila is authored by Missari Ahil and released under the MIT License. Inspired by HorizonX's agent-first design paradigm and the shadcn/ui copy-paste philosophy.*
+
+[![M8ven Score](https://m8ven.ai/badge/mcp/missarii-mila-170rb4?v=cdf393e41ca2598f6e09b83fe62c02d7)](https://m8ven.ai/mcp/missarii-mila-170rb4?s=readme)
